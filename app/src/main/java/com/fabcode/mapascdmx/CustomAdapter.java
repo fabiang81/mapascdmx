@@ -68,6 +68,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 Intent intent = new Intent(activity, MapsActivity.class);
                 intent.putExtra("latitude", placeData.getCoords().getLat());
                 intent.putExtra("longitude", placeData.getCoords().getLon());
+                intent.putExtra("placeName", placeData.getName());
                 activity.startActivity(intent);
             }
         });
