@@ -54,12 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         LatLng mexico = new LatLng(latitude, longitude);
-        CameraUpdate center=
-                CameraUpdateFactory.newLatLng(mexico);
-        CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
 
-        mMap.moveCamera(center);
-        mMap.animateCamera(zoom);
         if(placeName.equals("Coyoacán")){
             mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_30)).position(mexico).title("Marker in Coyoacán"));
         }
@@ -73,6 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_50)).position(mexico).title("Marker in Reforma"));
         }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(mexico));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(mexico));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mexico , 16));
     }
 }
